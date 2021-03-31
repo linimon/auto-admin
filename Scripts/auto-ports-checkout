@@ -25,6 +25,9 @@ export PORTSDIR
 
 case $(auto-ostype) in
 FreeBSD)
+    if [ -e $PORTSDIR ]; then
+    	mkdir -p $PORTSDIR || exit 1
+    fi
     if [ -e $PORTSDIR/CHANGES ]; then
 	printf "Ports tree already installed in $PORTSDIR.\n"
 	exit 1
